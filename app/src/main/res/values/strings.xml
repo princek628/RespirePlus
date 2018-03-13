@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Respire+</string>
+    <string name="login_intro">Enter Your Registered Phone Number</string>
+    <string name="signupintro">Welcome To Respire+</string>
+    <string name="tnc">By Signing Up, You agree to our Terms n Conditions and Privacy Policy</string>
+    <string name="pwdrecovery">Password Recovery</string>
+    <string name="AddDetailsInfo">It is necessary to submit your health profile so that we can give better predictions and results for you!</string>
+    <string name="spinner">Select One</string>
+    
+    
+    <string name="google_maps_key"></string>
+    <string name="pause">Pause Location Updates</string>
+    <string name="resume">Resume Location Updates</string>
+
+</resources>

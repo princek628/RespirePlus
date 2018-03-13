@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    tools:context=".Emergency">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleTextGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="GPS LOCATION"
+        android:textSize="20sp"/>
+
+
+    <TextView
+        android:id="@+id/longitudeTextGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextGPS"
+        android:text="longitude"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/longitudeValueGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextGPS"
+        android:layout_toRightOf="@id/longitudeTextGPS"
+        android:paddingLeft="16dp"
+        android:text="0.0000"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/latitudeTextGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/longitudeTextGPS"
+        android:text="latitude"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/latitudeValueGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/longitudeValueGPS"
+        android:layout_toRightOf="@id/longitudeTextGPS"
+        android:paddingLeft="16dp"
+        android:text="0.0000"
+        android:textSize="20sp"/>
+
+    <View
+        android:id="@+id/separator1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/latitudeValueGPS"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/material_blue_grey_800"/>
+
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/separator1"
+        android:text="Reset Location"
+        android:textSize="17dp"
+        android:gravity="center"/>
+
+        <Button
+            android:id="@+id/Send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@+id/reset"
+            android:text="Send Emergency Alert"
+            android:textSize="17dp"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+</ScrollView>
