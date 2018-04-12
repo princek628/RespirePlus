@@ -5,9 +5,11 @@ package com.respireplus.respire;
  */
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +33,7 @@ public class HeartRateResult extends AppCompatActivity{
 
         Date = df.format(today);
         TextView RHR = (TextView) this.findViewById(R.id.HRR);
-        ImageButton SHR = (ImageButton)this.findViewById(R.id.SendHR);
+        Button btnSymp = (Button) this.findViewById(R.id.symptoms);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -40,24 +42,25 @@ public class HeartRateResult extends AppCompatActivity{
             //user = bundle.getString("Usr");
             Log.d("DEBUG_TAG", "ccccc"+ user);
             RHR.setText("Heart Rate:"+String.valueOf(HR)+" bpm\nRespiratory Rate:"+String.valueOf(RR)+" per minute");
-            Toast tt = Toast.makeText(getApplicationContext(),String.valueOf(RR),Toast.LENGTH_LONG);
+            //Toast tt = Toast.makeText(getApplicationContext(),String.valueOf(RR),Toast.LENGTH_LONG);
         }
 
-        SHR.setOnClickListener(new View.OnClickListener() {
+        btnSymp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "Health Watcher");
-                i.putExtra(Intent.EXTRA_TEXT   , user+"'s Heart Rate "+"\n"+" at "+ Date +" is :    "+HR);
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(HeartRateResult.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View view) {
+                int TIME = 8000; //8000 ms (8 Seconds)
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        function(); //call function!
+                    }
+                }, TIME);
             }
         });
+    }
+
+    public void function(){
 
     }
 

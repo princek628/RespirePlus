@@ -81,13 +81,13 @@
             android:layout_marginTop="5dp"/>
 
         <EditText
-            android:id="@+id/Date"
+            android:id="@+id/Age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="17dp"
             android:gravity="center"
-            android:inputType="date"
+            android:inputType="number"
             android:hint="dd/mm/yyyy"
             android:layout_marginRight="20dp"/>
 

@@ -24,7 +24,7 @@
         android:layout_marginRight="35dp"
         android:hint="Enter Your Doctor ID"
         android:textSize="17dp"
-        android:inputType="phone"
+        android:inputType="text"
         android:maxLines="1"
         android:textColor="@color/colorPrimary"/>
 

@@ -52,13 +52,17 @@
         android:layout_marginBottom="140dp"
          />
 
-    <ImageButton
-        android:id="@+id/SendHR"
+    <Button
+        android:id="@+id/symptoms"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginBottom="40dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
+        android:layout_height="wrap_content"
+        android:text="Feeling Uneasy"
+        android:textSize="17dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="15dp"
         />
 
 </LinearLayout>
