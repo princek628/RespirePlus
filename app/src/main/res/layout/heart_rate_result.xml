@@ -6,63 +6,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/heart_rate_result"
-    android:paddingBottom="16dp"
-    android:paddingLeft="64dp"
-    android:paddingRight="64dp"
-    android:paddingTop="16dp"
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.respireplus.respire.HeartRateResult"
-    android:weightSum="1">
+    >
 
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:scaleType="fitCenter"
+             />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Results"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"/>
 
+        <TextView
+            android:id="@+id/HRR"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:scaleType="fitCenter"
-         />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Results"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
-        android:gravity="center"/>
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="40dp"
+             />
 
-    <TextView
-        android:id="@+id/HRR"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:text=""
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Additional Symptoms If Present"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"/>
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginBottom="140dp"
-         />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginTop="15dp">
 
-    <Button
-        android:id="@+id/symptoms"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Feeling Uneasy"
-        android:textSize="17dp"
-        android:background="@color/colorPrimaryDark"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="15dp"
-        />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chest Pain"
+                android:textSize="17dp"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:layout_marginTop="5dp"/>
+            <Spinner
+                android:id="@+id/ChestPain"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:prompt="@string/spinner"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/symptoms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go"
+            android:textSize="17dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="15dp"
+            />
 
 </LinearLayout>

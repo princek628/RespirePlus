@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Created by peekay on 3/2/18.
- */
+ * Created by peekay on 3/2/18.*
+ **/
 
 public class Home extends AppCompatActivity {
     Button btnMeasure, btnEmergency;
