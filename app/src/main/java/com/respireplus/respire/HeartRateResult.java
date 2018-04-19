@@ -57,7 +57,7 @@ public class HeartRateResult extends AppCompatActivity implements AdapterView.On
         TextView RHR = (TextView) this.findViewById(R.id.HRR);
         Button btnSymp = (Button) this.findViewById(R.id.symptoms);
         mProgress = new ProgressDialog(this);
-        mProgress.setTitle("Signing you up...");
+        mProgress.setTitle("Getting Your Prediction...");
         mProgress.setMessage("Please wait...");
         mProgress.setCancelable(false);
         mProgress.setIndeterminate(true);
@@ -145,15 +145,14 @@ public class HeartRateResult extends AppCompatActivity implements AdapterView.On
                         mProgress.dismiss();
                         try {
                             String s= new String(response);
-                            if(s.equals("true"))
+                            if(!s.equals("Failed"))
                             {
                                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                                editor.putString("mobile",mobile);
-                                editor.putBoolean("signup",true);
+                                editor.putString("result",s);
                                 editor.commit();
-                                Toast.makeText(HeartRateResult.this, "SignUp Successful.. Enter Additional Details to continue", Toast.LENGTH_SHORT).show();
-                                Intent chatIntent=new Intent(HeartRateResult.this,AdditionalDetails.class);
+                                Toast.makeText(HeartRateResult.this, "Prediction Successful.. "+s, Toast.LENGTH_SHORT).show();
+                                Intent chatIntent=new Intent(HeartRateResult.this,Prediction.class);
                                 startActivity(chatIntent);
                                 finish();
                             }
