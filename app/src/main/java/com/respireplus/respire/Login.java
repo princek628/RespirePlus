@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +33,8 @@ import java.util.Map;
 public class Login extends AppCompatActivity {
 
     Button btnLogin, btnSignup;
-    EditText etMobile, etPwd;
+    //EditText etMobile, etPwd;
+    TextInputEditText etMobile, etPwd;
     TextView tvForgotPwd;
     private ProgressDialog mProgress;
     SharedPreferences sharedpreferences;
@@ -64,8 +66,10 @@ public class Login extends AppCompatActivity {
 
         btnLogin = (Button) findViewById(R.id.Login);
         btnSignup = (Button) findViewById(R.id.SignUp);
-        etMobile = (EditText) findViewById(R.id.MobileNo);
-        etPwd = (EditText) findViewById(R.id.Password);
+//        etMobile = (EditText) findViewById(R.id.MobileNo);
+//        etPwd = (EditText) findViewById(R.id.Password);
+        etMobile = (TextInputEditText) findViewById(R.id.MobileNo);
+        etPwd = (TextInputEditText) findViewById(R.id.Password);
         tvForgotPwd = (TextView) findViewById(R.id.ForgotPwd);
         mProgress = new ProgressDialog(this);
         mProgress.setTitle("Logging you in...");
