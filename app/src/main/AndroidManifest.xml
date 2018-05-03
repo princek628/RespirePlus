@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.respireplus.respire">
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens= "true"
+        android:anyDensity="true"
+        />
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -21,20 +27,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
-            !!android:theme="@style/AppTheme.NoActionBar"
+        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>.
-        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".ForgotPassword">
+
+        </activity>
         <activity android:name=".Login"></activity>
         <activity android:name=".SignUp"></activity>
         <activity android:name=".AdditionalDetails"></activity>
         <activity android:name=".HeartRateProcess"></activity>
         <activity android:name=".HeartRateResult"></activity>
-        <activity android:name="Home"></activity>
+        <activity android:name=".Home"></activity>
         <activity android:name=".Emergency"></activity>
         <activity android:name=".DoctorLogin"></activity>
         <activity android:name=".DoctorHome"></activity>

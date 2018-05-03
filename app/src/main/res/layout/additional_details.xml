@@ -79,17 +79,22 @@
             android:gravity="center"
             android:layout_weight="2"
             android:layout_marginTop="5dp"/>
-
-        <EditText
-            android:id="@+id/Age"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Dob"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="17dp"
-            android:gravity="center"
-            android:inputType="number"
-            android:hint="dd/mm/yyyy"
-            android:layout_marginRight="20dp"/>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/Age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="17dp"
+                android:textColor="@color/colorAccent"
+                android:gravity="center"
+                android:inputType="number"
+                android:hint="dd/mm/yyyy"
+                android:layout_marginRight="20dp"/>
+        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 
@@ -108,17 +113,22 @@
             android:gravity="center"
             android:layout_weight="2"
             android:layout_marginTop="5dp"/>
-
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Height11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <EditText
             android:id="@+id/Height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/colorAccent"
             android:textSize="17dp"
             android:gravity="center"
             android:inputType="numberDecimal"
             android:hint="in centimeter"
             android:layout_marginRight="20dp"/>
+        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 
@@ -137,9 +147,13 @@
             android:gravity="center"
             android:layout_weight="2"
             android:layout_marginTop="5dp"/>
-
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/Height1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <EditText
             android:id="@+id/Weight"
+            android:textColor="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -148,6 +162,7 @@
             android:inputType="numberDecimal"
             android:hint="in kilograms"
             android:layout_marginRight="20dp"/>
+    </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 
@@ -182,6 +197,7 @@
         android:layout_height="wrap_content"
         android:text="SUBMIT"
         android:textSize="17dp"
+        android:textColor="#ffffff"
         android:background="@color/colorPrimaryDark"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="90dp"
