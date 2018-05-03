@@ -45,6 +45,7 @@
         <activity android:name=".Emergency"></activity>
         <activity android:name=".DoctorLogin"></activity>
         <activity android:name=".DoctorHome"></activity>
+        <activity android:name=".Prediction"></activity>
     </application>
 
 </manifest>
