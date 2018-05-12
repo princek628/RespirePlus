@@ -17,6 +17,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+        Toolbar tb;
 
         tlbr = (Toolbar) findViewById(R.id.tb);
         setSupportActionBar(tlbr);
