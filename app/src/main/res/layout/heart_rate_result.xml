@@ -7,60 +7,68 @@
     android:layout_height="match_parent"
     android:id="@+id/heart_rate_result"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:context="com.respireplus.respire.HeartRateResult"
-    >
+    tools:context="com.respireplus.respire.HeartRateResult">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:scaleType="fitCenter"
-             />
+             />!-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Results"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
+            android:text="Your Result"
+            android:layout_marginTop="60dp"
+            android:fontFamily="sans-serif"
+            android:textSize="40dp"
+            android:textColor="@android:color/white"
             android:gravity="center"/>
 
+    </LinearLayout>
         <TextView
             android:id="@+id/HRR"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
             android:background="@android:color/transparent"
             android:text=""
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:textColor="@android:color/white"
+            android:textSize="60sp"
             android:textStyle="bold" />
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginBottom="40dp"
-             />
+             />!-->
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Enter Additional Symptoms If Present"
-            android:textStyle="bold"
+            android:fontFamily="sans-serif"
             android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:gravity="center"/>
+            android:textColor="@android:color/white"
+            android:gravity="center"/>!
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="3"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="30dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -84,11 +92,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Go"
-            android:textSize="17dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
             android:layout_marginBottom="15dp"
             />
 

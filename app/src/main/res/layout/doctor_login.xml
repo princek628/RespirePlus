@@ -1,18 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.v7.widget.CardView
+    <View
         android:layout_width="match_parent"
-        android:layout_marginTop="100sp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimary" />
+    <RelativeLayout
+        android:id="@+id/rl_two_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp">
+        <TextView
+            android:id="@+id/tv_one_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Respire +"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="-80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        app:cardElevation="5dp"
-        android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_one_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="192dp"
+        android:elevation="10dp"
+        app:cardBackgroundColor="#fcfcfc"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
@@ -22,10 +56,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="17dp"
-                android:textColor="@android:color/black"
+                android:textSize="27dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_marginTop="15dp"
-                android:text="Login Screen For Hospitals/ Doctors"/>
+                android:layout_marginBottom="35dp"
+                android:text="Hospital/Doctor Log In"/>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -34,9 +70,9 @@
                     android:drawableLeft="@drawable/id1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
                     android:hint="Doctor ID"
                     android:textSize="17dp"
                     android:inputType="text"
@@ -45,16 +81,16 @@
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content">
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/Password"
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:drawableLeft="@drawable/lock"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="25dp"
                     android:hint="Password"
                     android:textSize="17dp"
                     android:inputType="textPassword"
@@ -70,10 +106,10 @@
                 android:textSize="17dp"
                 android:textColor="#ffffff"
                 android:background="@color/colorPrimaryDark"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:layout_marginBottom="30dp"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
@@ -82,18 +118,20 @@
                 android:background="@android:color/black"/>
             <TextView
                 android:id="@+id/ForgotPwd"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
                 android:textSize="17dp"
                 android:text="FORGOT PASSWORD?"
-                android:textColor="@android:color/holo_red_dark"
+                android:textColor="@color/colorPrimaryDark"
                 android:gravity="center"/>
 
 
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
+        </RelativeLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

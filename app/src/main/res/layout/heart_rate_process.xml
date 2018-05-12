@@ -12,11 +12,12 @@
     android:weightSum="1"
     tools:context="com.respireplus.respire.HeartRateProcess">
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Collecting Data"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
+        android:layout_marginTop="5dp"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:gravity="center"/>
 
@@ -25,12 +26,14 @@
         android:layout_height="wrap_content"
         android:text="\nPlease keep your index finger fixed on camera throughout the process"
         android:textSize="12dp"
+        android:layout_marginBottom="15dp"
         android:gravity="center"/>
 
     <SurfaceView
         android:id="@+id/preview"
         android:layout_width="fill_parent"
         android:layout_weight="1"
+
         android:layout_height="0dp">
     </SurfaceView>
 

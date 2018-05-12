@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +30,7 @@ import java.util.Map;
 
 public class ForgotPassword extends AppCompatActivity {
 
-    EditText etMobile;
+    TextInputEditText etMobile;
     Button btnGetPwd;
     private ProgressDialog mProgress;
     SharedPreferences sharedpreferences;
@@ -41,7 +42,7 @@ public class ForgotPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgot_password);
 
-        etMobile=(EditText)findViewById(R.id.Name);
+        etMobile=(TextInputEditText) findViewById(R.id.Name);
         btnGetPwd=(Button) findViewById(R.id.GetPassword);
         mProgress = new ProgressDialog(this);
         mProgress.setTitle("Signing you up...");

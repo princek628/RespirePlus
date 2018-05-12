@@ -8,7 +8,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,8 +40,9 @@ import java.util.Map;
 
 public class AdditionalDetails extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    Toolbar tlbr;
     RadioGroup radioGroup,radioGroup2;
-    EditText etDate, etHeight, etWeight,etChol;
+    TextInputEditText etDate, etHeight, etWeight,etChol;
     Button btnSubmit;
     private String gndr,history,mobile,fbs,thal;
     private int sno,fbsid,sno2,restecg,gndrid;
@@ -51,10 +55,15 @@ public class AdditionalDetails extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.additional_details);
 
-        etDate = (EditText)findViewById(R.id.Age);
-        etHeight = (EditText)findViewById(R.id.Height);
-        etWeight = (EditText)findViewById(R.id.Weight);
-        etChol = (EditText)findViewById(R.id.Chol);
+        tlbr = (Toolbar) findViewById(R.id.tb);
+        setSupportActionBar(tlbr);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        etDate = (TextInputEditText)findViewById(R.id.Age);
+        etHeight = (TextInputEditText)findViewById(R.id.Height);
+        etWeight = (TextInputEditText)findViewById(R.id.Weight);
+        etChol = (TextInputEditText)findViewById(R.id.Chol);
         btnSubmit = (Button) findViewById(R.id.Submit);
         mProgress = new ProgressDialog(this);
         mProgress.setTitle("Saving Additional Details...");
@@ -232,5 +241,16 @@ public class AdditionalDetails extends AppCompatActivity implements AdapterView.
             }
         };
         queue.add(postRequest);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }

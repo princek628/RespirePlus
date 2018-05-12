@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.respireplus.respire">
-    <supports-screens
-        android:smallScreens="true"
-        android:normalScreens="true"
-        android:largeScreens= "true"
-        android:anyDensity="true"
-        />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.flash" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -26,26 +28,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>.
-        <activity android:name=".ForgotPassword">
 
         </activity>
-        <activity android:name=".Login" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".SignUp"></activity>
-        <activity android:name=".AdditionalDetails"></activity>
-        <activity android:name=".HeartRateProcess"></activity>
-        <activity android:name=".HeartRateResult"></activity>
-        <activity android:name=".Home"></activity>
-        <activity android:name=".Emergency"></activity>
-        <activity android:name=".DoctorLogin"></activity>
-        <activity android:name=".DoctorHome"></activity>
-        <activity android:name=".Prediction"></activity>
+        <activity android:name=".ForgotPassword" />
+        <activity
+            android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SignUp" android:theme="@style/AppThemeToolbar" android:label="Welcome to Respire+">
+      </activity>
+        <activity
+            android:name=".AdditionalDetails"
+            android:theme="@style/AppThemeToolbar" android:label="Additional Details"/>
+        <activity android:name=".HeartRateProcess" />
+        <activity android:name=".HeartRateResult" />
+        <activity android:name=".Home" android:theme="@style/AppThemeToolbar" android:label="Home">
+
+
+        </activity>
+
+        <activity android:name=".Emergency" android:theme="@style/Theme.DarkTheme"/>
+        <activity android:name=".DoctorLogin" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".DoctorHome" />
+        <activity android:name=".Prediction">
+
+        </activity>
     </application>
 
 </manifest>

@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,8 +34,9 @@ import java.util.Map;
 public class SignUp extends AppCompatActivity {
 
     Button btnLogin, btnSignup;
-    EditText etMobile, etPwd, etName, etMail;
+    TextInputEditText etMobile, etPwd, etName, etMail;
     TextView tvPolicy;
+    Toolbar tlbr;
     private ProgressDialog mProgress;
     SharedPreferences sharedpreferences;
     private static final String MyPREFERENCES = "MyPrefs";
@@ -42,12 +46,17 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
+        tlbr = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(tlbr);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btnLogin = (Button) findViewById(R.id.Login);
         btnSignup = (Button) findViewById(R.id.SignUp);
-        etMail = (EditText) findViewById(R.id.Email);
-        etMobile = (EditText) findViewById(R.id.MobileNo);
-        etName = (EditText) findViewById(R.id.Name);
-        etPwd = (EditText) findViewById(R.id.Password);
+        etMail = (TextInputEditText) findViewById(R.id.Email);
+        etMobile = (TextInputEditText) findViewById(R.id.MobileNo);
+        etName = (TextInputEditText) findViewById(R.id.Name);
+        etPwd = (TextInputEditText) findViewById(R.id.Password);
         tvPolicy = (TextView) findViewById(R.id.tnc);
         mProgress = new ProgressDialog(this);
         mProgress.setTitle("Signing you up...");
@@ -135,5 +144,15 @@ public class SignUp extends AppCompatActivity {
             }
         };
         queue.add(postRequest);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }
