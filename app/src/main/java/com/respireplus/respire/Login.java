@@ -120,6 +120,7 @@ public class Login extends AppCompatActivity {
                             {
                                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedpreferences.edit();
+                                editor.putString("mobile",mobile);
                                 editor.putBoolean("login",true);
                                 editor.commit();
                                 Toast.makeText(Login.this, "Login Successful...", Toast.LENGTH_SHORT).show();

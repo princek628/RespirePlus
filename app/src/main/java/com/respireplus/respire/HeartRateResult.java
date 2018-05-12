@@ -40,7 +40,7 @@ import java.util.Map;
 
 public class HeartRateResult extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    private String user,Date,cp,thal,mobile;
+    private String user,Date,cp,thal, mobile;
     private int HR,RR,sno,sno2;
     DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     Date today = Calendar.getInstance().getTime();

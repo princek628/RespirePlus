@@ -42,24 +42,18 @@
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SignUp" android:theme="@style/AppThemeToolbar" android:label="Welcome to Respire+">
-      </activity>
+        <activity android:name=".SignUp" android:theme="@style/AppThemeToolbar" android:label="Welcome to Respire+"></activity>
         <activity
             android:name=".AdditionalDetails"
             android:theme="@style/AppThemeToolbar" android:label="Additional Details"/>
         <activity android:name=".HeartRateProcess" />
         <activity android:name=".HeartRateResult" />
-        <activity android:name=".Home" android:theme="@style/AppThemeToolbar" android:label="Home">
-
-
-        </activity>
-
+        <activity android:name=".Home" android:theme="@style/AppThemeToolbar" android:label="Home"></activity>
         <activity android:name=".Emergency" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".DoctorLogin" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".DoctorHome" />
-        <activity android:name=".Prediction" android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+        <activity android:name=".Prediction" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DeleteUser"></activity>
     </application>
 
 </manifest>

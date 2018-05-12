@@ -4,12 +4,16 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +50,7 @@ public class DoctorHome extends AppCompatActivity {
 
         etNum=(EditText)findViewById(R.id.pnum);
         btnSrch=(Button)findViewById(R.id.srch);
-        tvDisplay=(TextView)findViewById(R.id.srchrslt);
+        //tvDisplay=(TextView)findViewById(R.id.srchrslt);
         mProgress = new ProgressDialog(this);
         mProgress.setTitle("Searching...");
         mProgress.setMessage("Please wait...");
@@ -58,7 +62,7 @@ public class DoctorHome extends AppCompatActivity {
             public void onClick(View view) {
                 String s=etNum.getText().toString();
                 if(s==null || s.length()!=10)
-                    Snackbar.make(findViewById(R.id.doctor_home), "Enter a valid mobile number", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(findViewById(R.id.history), "Enter a valid mobile number", Snackbar.LENGTH_LONG).show();
                 else
                     search(s);
 
@@ -85,16 +89,42 @@ public class DoctorHome extends AppCompatActivity {
                             String print="";
                             int row=jobj.getInt("rowCount");
                             JSONArray jarray=new JSONArray(jobj.getJSONArray("rows").toString());
+                            LinearLayout mainLayout = (LinearLayout) findViewById(R.id.history);
+                            mainLayout.removeAllViews();
                             for(int i=0;i<row;i++)
                             {
+                                LinearLayout ll = new LinearLayout(getApplicationContext());
+                                ll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                                ll.setOrientation(LinearLayout.VERTICAL);
+                                ll.setPadding(10, 10, 10, 10);
+
+                                final LinearLayout sll = new LinearLayout(getApplicationContext());
+                                sll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                                sll.setPadding(15, 15, 5, 15);
+                                sll.setOrientation(LinearLayout.VERTICAL);
+
+                                TextView tvTitle = new TextView(getApplicationContext());
+                                tvTitle.setLayoutParams(new LinearLayout.LayoutParams(
+                                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                                tvTitle.setTextColor(Color.BLACK);
+                                tvTitle.setGravity(Gravity.CENTER);
+
+
                                 JSONObject jobj2=new JSONObject(jarray.getJSONObject(i).toString());
                                 int cp=jobj2.getInt("cp");
                                 int thalach=jobj2.getInt("thalach");
                                 String rslt=jobj2.getString("result");
                                 print=print+i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt+"\n";
+
+                                tvTitle.setText(Html.fromHtml(i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt));
+                                sll.addView(tvTitle);
+
+                                ll.addView(sll);
+                                mainLayout.addView(ll);
                             }
 
-                            tvDisplay.setText("SN ChestPain HeartRate Prediction\n"+print);
+                            //tvDisplay.setText("SN ChestPain HeartRate Prediction\n"+print);
 
                         }catch (Exception e){
                             System.out.println(e.getMessage().toString());
@@ -107,7 +137,7 @@ public class DoctorHome extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         mProgress.dismiss();
-                        Snackbar.make(findViewById(R.id.doctor_home), "Check your Internet Connection", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(findViewById(R.id.history), "Check your Internet Connection", Snackbar.LENGTH_LONG).show();
                     }
                 }
         ) {

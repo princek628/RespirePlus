@@ -57,7 +57,7 @@ public class DeleteUser extends AppCompatActivity {
                 if(s!=null && s.length()==10)
                     sendreq(s);
                 else
-                    Snackbar.make(findViewById(R.id.Numbr), "Enter a valid mobile number", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(findViewById(R.id.DeleteUser), "Enter a valid mobile number", Snackbar.LENGTH_LONG).show();
 
             }
         });
@@ -88,9 +88,9 @@ public class DeleteUser extends AppCompatActivity {
                                 finish();
                             }
                             else if(s==0)
-                                Snackbar.make(findViewById(R.id.Del), "No user details found with entered number...", Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(findViewById(R.id.DeleteUser), "No user details found with entered number...", Snackbar.LENGTH_LONG).show();
                             else
-                                Snackbar.make(findViewById(R.id.Del), response+"!! Try Again...", Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(findViewById(R.id.DeleteUser), response+"!! Try Again...", Snackbar.LENGTH_LONG).show();
 
                         }catch (Exception e){
                             System.out.println(e.getMessage().toString());
@@ -103,7 +103,7 @@ public class DeleteUser extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         mProgress.dismiss();
-                        Snackbar.make(findViewById(R.id.doctor_home), "Check your Internet Connection", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(findViewById(R.id.DeleteUser), "Check your Internet Connection", Snackbar.LENGTH_LONG).show();
                     }
                 }
         ) {

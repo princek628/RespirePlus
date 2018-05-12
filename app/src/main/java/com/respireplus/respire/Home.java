@@ -1,6 +1,8 @@
 package com.respireplus.respire;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,8 +14,11 @@ import android.widget.Button;
  **/
 
 public class Home extends AppCompatActivity {
-    Button btnMeasure, btnEmergency;
+    Button btnMeasure, btnEmergency, btnSignOut, btnDel;
     Toolbar tlbr;
+    SharedPreferences sharedpreferences;
+    private static final String MyPREFERENCES = "MyPrefs";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
@@ -25,12 +30,14 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnMeasure = (Button)findViewById(R.id.Measure);
         btnEmergency = (Button) findViewById(R.id.Emergency);
+        btnSignOut = (Button) findViewById(R.id.Logout);
+        btnDel = (Button) findViewById(R.id.DeleteHistory);
 
         btnMeasure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Home.this, HeartRateProcess.class));
-                finish();
+                //finish();
             }
         });
 
@@ -38,6 +45,24 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Home.this, Emergency.class));
+            }
+        });
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Home.this, DeleteUser.class));
+            }
+        });
+
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.clear();
+                editor.commit();
+                startActivity(new Intent(Home.this, MainActivity.class));
             }
         });
     }
