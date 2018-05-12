@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -22,19 +21,17 @@ import com.android.volley.toolbox.Volley;
 import com.famoussoft.libs.JSON.JSONArray;
 import com.famoussoft.libs.JSON.JSONObject;
 
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by peekay on 12/3/18.
+ * Created by peekay on 11/5/18.
  */
 
-public class DoctorHome extends AppCompatActivity {
+public class DeleteUser extends AppCompatActivity {
 
     EditText etNum;
-    Button btnSrch;
-    TextView tvDisplay;
+    Button btnDel;
     private ProgressDialog mProgress;
     SharedPreferences sharedpreferences;
     private static final String MyPREFERENCES = "MyPrefs";
@@ -42,38 +39,38 @@ public class DoctorHome extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.doctor_home);
+        setContentView(R.layout.delete_user);
 
-        etNum=(EditText)findViewById(R.id.pnum);
-        btnSrch=(Button)findViewById(R.id.srch);
-        tvDisplay=(TextView)findViewById(R.id.srchrslt);
+        etNum=(EditText)findViewById(R.id.Numbr);
+        btnDel=(Button)findViewById(R.id.Del);
         mProgress = new ProgressDialog(this);
-        mProgress.setTitle("Searching...");
+        mProgress.setTitle("Deleting User...");
         mProgress.setMessage("Please wait...");
         mProgress.setCancelable(false);
         mProgress.setIndeterminate(true);
 
-        btnSrch.setOnClickListener(new View.OnClickListener() {
+        btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String s=etNum.getText().toString();
-                if(s==null || s.length()!=10)
-                    Snackbar.make(findViewById(R.id.doctor_home), "Enter a valid mobile number", Snackbar.LENGTH_LONG).show();
+                if(s!=null && s.length()==10)
+                    sendreq(s);
                 else
-                    search(s);
+                    Snackbar.make(findViewById(R.id.Numbr), "Enter a valid mobile number", Snackbar.LENGTH_LONG).show();
 
             }
         });
 
     }
 
-    private void search(final String mobile){
+    private void sendreq(final String mobile){
         mProgress.show();
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         String ip=sharedpreferences.getString("ip",null);
         //URLEncoder.encode(message)
-        RequestQueue queue = Volley.newRequestQueue(DoctorHome.this);  // this = context
-        String url = "http://"+ip+"/doc-srch?mobile="+mobile;
+        RequestQueue queue = Volley.newRequestQueue(DeleteUser.this);  // this = context
+        String url = "http://"+ip+"/delusr?mobile="+mobile;
         StringRequest postRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
                 {
@@ -82,19 +79,18 @@ public class DoctorHome extends AppCompatActivity {
                         mProgress.dismiss();
                         try {
                             JSONObject jobj = new JSONObject(response);
-                            String print="";
-                            int row=jobj.getInt("rowCount");
-                            JSONArray jarray=new JSONArray(jobj.getJSONArray("rows").toString());
-                            for(int i=0;i<row;i++)
+                            int s=jobj.getInt("rowCount");
+                            if(s!=0)
                             {
-                                JSONObject jobj2=new JSONObject(jarray.getJSONObject(i).toString());
-                                int cp=jobj2.getInt("cp");
-                                int thalach=jobj2.getInt("thalach");
-                                String rslt=jobj2.getString("result");
-                                print=print+i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt+"\n";
+                                Toast.makeText(DeleteUser.this, "User Details Deleted Successfully...", Toast.LENGTH_LONG).show();
+                                Intent chatIntent=new Intent(DeleteUser.this,Home.class);
+                                startActivity(chatIntent);
+                                finish();
                             }
-
-                            tvDisplay.setText("SN ChestPain HeartRate Prediction\n"+print);
+                            else if(s==0)
+                                Snackbar.make(findViewById(R.id.Del), "No user details found with entered number...", Snackbar.LENGTH_LONG).show();
+                            else
+                                Snackbar.make(findViewById(R.id.Del), response+"!! Try Again...", Snackbar.LENGTH_LONG).show();
 
                         }catch (Exception e){
                             System.out.println(e.getMessage().toString());
