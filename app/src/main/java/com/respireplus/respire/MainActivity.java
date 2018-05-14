@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             lp.setMargins(5,5,5,5);
             input.setLayoutParams(lp);
             builder.setView(input);
-            builder.setTitle("Recover Your Password");
+            builder.setTitle("Connect to Server");
             builder.setCancelable(false);
             //Snackbar.make(, "Forgot Password will be available soon...",
               //      Snackbar.LENGTH_LONG).show();

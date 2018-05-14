@@ -91,6 +91,7 @@ public class DoctorHome extends AppCompatActivity {
                             JSONArray jarray=new JSONArray(jobj.getJSONArray("rows").toString());
                             LinearLayout mainLayout = (LinearLayout) findViewById(R.id.history);
                             mainLayout.removeAllViews();
+
                             for(int i=0;i<row;i++)
                             {
                                 LinearLayout ll = new LinearLayout(getApplicationContext());
@@ -115,11 +116,10 @@ public class DoctorHome extends AppCompatActivity {
                                 int cp=jobj2.getInt("cp");
                                 int thalach=jobj2.getInt("thalach");
                                 String rslt=jobj2.getString("result");
-                                print=print+i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt+"\n";
+                                //print=print+i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt+"\n";
 
                                 tvTitle.setText(Html.fromHtml(i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt));
                                 sll.addView(tvTitle);
-
                                 ll.addView(sll);
                                 mainLayout.addView(ll);
                             }

@@ -47,7 +47,7 @@
             android:name=".AdditionalDetails"
             android:theme="@style/AppThemeToolbar" android:label="Additional Details"/>
         <activity android:name=".HeartRateProcess" />
-        <activity android:name=".HeartRateResult" />
+        <activity android:name=".HeartRateResult" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Home" android:theme="@style/AppThemeToolbar" android:label="Home"></activity>
         <activity android:name=".Emergency" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".DoctorLogin" android:theme="@style/AppTheme.NoActionBar"/>

@@ -25,7 +25,7 @@
             android:layout_marginRight="35dp"
             android:hint="Enter Patient's Registered Mobile"
             android:textSize="17dp"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:maxLines="1"
             android:textColor="@color/colorPrimary"/>
     
@@ -33,13 +33,22 @@
             android:id="@+id/srch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
+            android:text="SEARCH"
             android:textSize="17dp"
             android:background="@color/colorPrimaryDark"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="90dp"
             android:layout_marginRight="90dp"
             android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SN ChestPain HeartRate Prediction"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
