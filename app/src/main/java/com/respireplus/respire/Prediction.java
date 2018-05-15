@@ -30,11 +30,17 @@ public class Prediction extends AppCompatActivity {
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         String rslt=sharedpreferences.getString("result",null);
+        int r=sharedpreferences.getInt("disease",0);
         if(rslt.equals("["+"\""+"[0]"+"\""+"]"))
             s="No Heart and Respiratory Diseases";
-        else if(rslt.equals("["+"\""+"[1]"+"\""+"]"))
-            s="You may have Some Respiratory Problems.. Please contact your doctor immediately";
-
+        else if(rslt.equals("["+"\""+"[1]"+"\""+"]")) {
+            if(r==1)
+                s = "You may have Pneumonia Problems.. Please contact your doctor immediately";
+            else if(r==2)
+                s = "You may have Asthma Problems.. Please contact your doctor immediately";
+            else
+                s = "You may have some other Respiratory Problems.. Please contact your doctor immediately";
+        }
         tvRslt.setText("Prediction Result :"+s);
 
         btnBack.setOnClickListener(new View.OnClickListener() {

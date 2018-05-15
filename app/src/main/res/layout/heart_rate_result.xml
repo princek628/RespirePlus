@@ -61,8 +61,15 @@
             android:fontFamily="sans-serif"
             android:textSize="20dp"
             android:textColor="@android:color/black"
-            android:gravity="center"/>!
+            android:gravity="center"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,6 +94,128 @@
 
         </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fever"
+            android:gravity="left"
+            android:textColor="@android:color/black"
+            android:layout_weight="2"
+            android:layout_marginTop="5dp" />
+
+        <RadioGroup
+            android:id="@+id/RadioGroup1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/Fvr1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/Fvr2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:layout_weight="1" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wheezing"
+            android:gravity="left"
+            android:textColor="@android:color/black"
+            android:layout_weight="2"
+            android:layout_marginTop="5dp" />
+
+        <RadioGroup
+            android:id="@+id/RadioGroup2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/Whz1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/Whz2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:layout_weight="1" />
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shortness of Breath"
+            android:gravity="left"
+            android:textColor="@android:color/black"
+            android:layout_weight="2"
+            android:layout_marginTop="5dp" />
+
+        <RadioGroup
+            android:id="@+id/RadioGroup3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/Sb1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/Sb2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:layout_weight="1" />
+        </RadioGroup>
+    </LinearLayout>
+
         <Button
             android:id="@+id/symptoms"
             android:layout_width="match_parent"
@@ -99,5 +228,7 @@
             android:layout_marginRight="45dp"
             android:layout_marginBottom="15dp"
             />
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

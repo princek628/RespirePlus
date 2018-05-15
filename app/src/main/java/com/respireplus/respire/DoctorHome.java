@@ -118,7 +118,7 @@ public class DoctorHome extends AppCompatActivity {
                                 String rslt=jobj2.getString("result");
                                 //print=print+i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt+"\n";
 
-                                tvTitle.setText(Html.fromHtml(i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt));
+                                tvTitle.setText(Html.fromHtml(i+"\t\t\t\t\t"+cp+"\t\t\t\t\t\t\t"+thalach+"\t\t\t\t\t\t\t\t\t"+rslt.substring(3,4)));
                                 sll.addView(tvTitle);
                                 ll.addView(sll);
                                 mainLayout.addView(ll);

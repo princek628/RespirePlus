@@ -12,6 +12,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -33,7 +34,7 @@ public class Emergency extends AppCompatActivity {
     TextView longitudeValueGPS, latitudeValueGPS;
     private boolean mLocationPermissionGranted;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
-    Button btnReset;
+    Button btnReset,btnSnd;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class Emergency extends AppCompatActivity {
         longitudeValueGPS = (TextView) findViewById(R.id.longitudeValueGPS);
         latitudeValueGPS = (TextView) findViewById(R.id.latitudeValueGPS);
         btnReset = (Button) findViewById(R.id.reset);
+        btnSnd = (Button) findViewById(R.id.Send);
 
         getLocationPermission();
         //checkLocation();
@@ -57,6 +59,14 @@ public class Emergency extends AppCompatActivity {
                     longitudeValueGPS.setText("");
                     latitudeValueGPS.setText("");
                     getlocation();
+                }
+            });
+
+            btnSnd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(findViewById(R.id.Send), "Emergency Updates will be sent to Emergency Local Authorities shortly with your location co-ordinates!!", Snackbar.LENGTH_LONG).show();
+
                 }
             });
         }

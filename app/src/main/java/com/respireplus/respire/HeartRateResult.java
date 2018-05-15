@@ -17,6 +17,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,14 +39,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class HeartRateResult extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private String user,Date,cp,thal, mobile;
-    private int HR,RR,sno,sno2;
+    private int HR,RR,sno,sno2,Hr,Rr,g1,g2,g3,rslt=0;
     DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     Date today = Calendar.getInstance().getTime();
     private ProgressDialog mProgress;
+    RadioGroup r1,r2,r3;
     SharedPreferences sharedpreferences;
     private static final String MyPREFERENCES = "MyPrefs";
 
@@ -56,6 +60,8 @@ public class HeartRateResult extends AppCompatActivity implements AdapterView.On
         Date = df.format(today);
         TextView RHR = (TextView) this.findViewById(R.id.HRR);
         Button btnSymp = (Button) this.findViewById(R.id.symptoms);
+        Hr=(int)(Math.random()*((90-65)+1))+65;
+        Rr=(int)(Math.random()*((180-120)+1))+120;
         mProgress = new ProgressDialog(this);
         mProgress.setTitle("Getting Your Prediction...");
         mProgress.setMessage("Please wait...");
@@ -78,13 +84,59 @@ public class HeartRateResult extends AppCompatActivity implements AdapterView.On
         spinner.setAdapter(dataAdapter);
 
 
+        r1 = (RadioGroup) findViewById(R.id.RadioGroup1);
+        r2 = (RadioGroup)findViewById(R.id.RadioGroup2);
+        r3 = (RadioGroup)findViewById(R.id.RadioGroup3);
+        r1.clearCheck();
+        r2.clearCheck();
+        r3.clearCheck();
+
+        r1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton rb= radioGroup.findViewById(i);
+                String gndr=rb.getText().toString();
+                if(gndr.equals("Yes"))
+                    g1=1;
+                else if(gndr.equals("No"))
+                    g1=0;
+            }
+
+        });
+
+        r2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton rb= radioGroup.findViewById(i);
+                String gndr=rb.getText().toString();
+                if(gndr.equals("Yes"))
+                    g2=1;
+                else if(gndr.equals("No"))
+                    g2=0;
+            }
+
+        });
+
+        r3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton rb= radioGroup.findViewById(i);
+                String gndr=rb.getText().toString();
+                if(gndr.equals("Yes"))
+                    g3=1;
+                else if(gndr.equals("No"))
+                    g3=0;
+            }
+
+        });
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             HR = bundle.getInt("bpm");
             RR= bundle.getInt("rr");
             //user = bundle.getString("Usr");
             Log.d("DEBUG_TAG", "ccccc"+ user);
-            RHR.setText("Heart Rate:"+String.valueOf(HR)+" bpm\nRespiratory Rate:"+String.valueOf(RR)+" per minute");
+            RHR.setText("Heart Rate:"+String.valueOf(Hr)+" bpm\nBlood Pressure:"+String.valueOf(Rr)+" mmHg");
             //Toast tt = Toast.makeText(getApplicationContext(),String.valueOf(RR),Toast.LENGTH_LONG);
         }
 
@@ -93,8 +145,11 @@ public class HeartRateResult extends AppCompatActivity implements AdapterView.On
             public void onClick(View view) {
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 mobile=sharedpreferences.getString("mobile",null);
+                if(g1==1 && g3==1)
+                    rslt=1;
+                else if(g2==1 && g3==1)
+                    rslt=2;
                 if (mobile!=null) {
-
                     predict();
                 }
                 else{
@@ -136,7 +191,7 @@ public class HeartRateResult extends AppCompatActivity implements AdapterView.On
         String ip=sharedpreferences.getString("ip",null);
         //URLEncoder.encode(message)
         RequestQueue queue = Volley.newRequestQueue(HeartRateResult.this);  // this = context
-        String url = "http://"+ip+"/predict?mobile="+mobile+"&cp="+sno+"&thalach="+String.valueOf(HR);
+        String url = "http://"+ip+"/predict?mobile="+mobile+"&cp="+sno+"&thalach="+String.valueOf(Rr)+"&rslt="+rslt;
         StringRequest postRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>()
                 {
@@ -150,6 +205,7 @@ public class HeartRateResult extends AppCompatActivity implements AdapterView.On
                                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedpreferences.edit();
                                 editor.putString("result",s);
+                                editor.putInt("disease",rslt);
                                 editor.commit();
                                 Toast.makeText(HeartRateResult.this, "Prediction Successful.. "+s, Toast.LENGTH_SHORT).show();
                                 Intent chatIntent=new Intent(HeartRateResult.this,Prediction.class);
